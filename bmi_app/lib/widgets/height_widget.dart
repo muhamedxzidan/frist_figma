@@ -1,36 +1,67 @@
 import 'package:flutter/material.dart';
 
-class HeightWidget extends StatelessWidget {
+class HeightWidget extends StatefulWidget {
   const HeightWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(21),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+  State<HeightWidget> createState() => _HeightWidgetState();
+}
 
-        color: Color(0xff333244),
-      ),
-      child: Column(
-        children: [
-          Text(
-            "Height",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+class _HeightWidgetState extends State<HeightWidget> {
+  int height = 170;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+
+            color: Color(0xff333244),
           ),
-          Text.rich(
-            TextSpan(
-              children: [
+          child: Column(
+            children: [
+              Text(
+                "Height",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+              ),
+              Text.rich(
                 TextSpan(
-                  text: "150",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  children: [
+                    TextSpan(
+                      text: "$height",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(text: "cm"),
+                  ],
                 ),
-                TextSpan(text: "cm"),
-              ],
-            ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Slider(
+                    value: height.toDouble(),
+                    onChanged: (value) {
+                      setState(() {
+                        height = value.toInt();
+                      });
+                    },
+                    activeColor: Color(0xffE83D67),
+                    divisions: 10,
+                    label: "شـد ياوحـش",
+                    min: 50,
+                    max: 220,
+                  ),
+                ),
+              ),
+            ],
           ),
-          Slider(value: .5, onChanged: (va) {}, activeColor: Color(0xffE83D67)),
-        ],
+        ),
       ),
     );
   }
