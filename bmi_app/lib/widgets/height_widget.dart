@@ -52,7 +52,7 @@ class _HeightWidgetState extends State<HeightWidget> {
                       });
                     },
                     activeColor: Color(0xffE83D67),
-                    divisions: 10,
+                    divisions: 100,
                     label: "شـد ياوحـش",
                     min: 50,
                     max: 220,

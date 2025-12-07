@@ -3,23 +3,39 @@ import 'package:flutter/material.dart';
 class GenderWidget extends StatelessWidget {
   final String named;
   final IconData icons;
-  const GenderWidget({super.key, required this.icons, required this.named});
+  final void Function()? onTap;
+  final bool isActive;
 
+  const GenderWidget({
+    super.key,
+    required this.icons,
+    required this.named,
+    this.onTap,
+    this.isActive = false,
+  });
+
+  //bool isActive = true;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child:
           //row gender
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Color(0xff24263B),
-            ),
-            child: Column(
-              children: [
-                Icon(icons, size: 96),
-                Text(named, style: TextStyle(fontSize: 20)),
-              ],
+          InkWell(
+            onTap: onTap,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+
+                color: isActive
+                    ? Color.fromARGB(255, 5, 175, 14)
+                    : Color(0xff333244),
+              ),
+              child: Column(
+                children: [
+                  Icon(icons, size: 96),
+                  Text(named, style: TextStyle(fontSize: 20)),
+                ],
+              ),
             ),
           ),
     );
