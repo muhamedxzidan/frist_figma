@@ -45,9 +45,9 @@ class BmiCalculator {
 
   static Color getTextColor(double bmi) {
     if (bmi >= 25 && bmi < 30) {
-      return Colors.black; // Black text on Yellow background
+      return Colors.black;
     } else {
-      return Colors.white; // White text on Red/Green backgrounds
+      return Colors.white;
     }
   }
 }

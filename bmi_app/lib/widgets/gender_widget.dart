@@ -14,30 +14,27 @@ class GenderWidget extends StatelessWidget {
     this.isActive = false,
   });
 
-  //bool isActive = true;
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child:
-          //row gender
-          InkWell(
-            onTap: onTap,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
 
-                color: isActive
-                    ? Color.fromARGB(255, 5, 175, 14)
-                    : Color(0xff333244),
-              ),
-              child: Column(
-                children: [
-                  Icon(icons, size: 96),
-                  Text(named, style: TextStyle(fontSize: 20)),
-                ],
-              ),
-            ),
+            color: isActive
+                ? Color.fromARGB(255, 5, 175, 14)
+                : Color(0xff333244),
           ),
+          child: Column(
+            children: [
+              Icon(icons, size: 96),
+              Text(named, style: TextStyle(fontSize: 20)),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
