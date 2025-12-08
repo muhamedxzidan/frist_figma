@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HeightWidget extends StatefulWidget {
-  const HeightWidget({super.key});
+  final Function(int) onHeightChanged;
+
+  const HeightWidget({required this.onHeightChanged, super.key});
 
   @override
   State<HeightWidget> createState() => _HeightWidgetState();
@@ -18,7 +20,6 @@ class _HeightWidgetState extends State<HeightWidget> {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-
             color: Color(0xff333244),
           ),
           child: Column(
@@ -49,6 +50,8 @@ class _HeightWidgetState extends State<HeightWidget> {
                     onChanged: (value) {
                       setState(() {
                         height = value.toInt();
+
+                        widget.onHeightChanged(height);
                       });
                     },
                     activeColor: Color(0xffE83D67),

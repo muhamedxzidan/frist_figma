@@ -1,22 +1,38 @@
 import 'package:flutter/material.dart';
 
 class AgeWidget extends StatefulWidget {
-  const AgeWidget({super.key});
+  final Function(int)? onWeightChanged;
+  final Function(int)? onAgeChanged;
+
+  const AgeWidget({super.key, this.onWeightChanged, this.onAgeChanged});
 
   @override
   State<AgeWidget> createState() => _AgeWidgetState();
 }
 
 class _AgeWidgetState extends State<AgeWidget> {
-  int _weight = 150;
-  int _age = 26;
+  int _weight = 50;
+  int _age = 20;
 
-  void _incrementWeight() => setState(() => _weight++);
-  void _decrementWeight() =>
-      setState(() => _weight = _weight > 0 ? _weight - 1 : 0);
+  void _incrementWeight() {
+    setState(() => _weight++);
+    widget.onWeightChanged?.call(_weight);
+  }
 
-  void _incrementAge() => setState(() => _age++);
-  void _decrementAge() => setState(() => _age = _age > 0 ? _age - 1 : 0);
+  void _decrementWeight() {
+    setState(() => _weight = _weight > 0 ? _weight - 1 : 0);
+    widget.onWeightChanged?.call(_weight);
+  }
+
+  void _incrementAge() {
+    setState(() => _age++);
+    widget.onAgeChanged?.call(_age);
+  }
+
+  void _decrementAge() {
+    setState(() => _age = _age > 0 ? _age - 1 : 0);
+    widget.onAgeChanged?.call(_age);
+  }
 
   Widget _buildCounter({
     required String label,
