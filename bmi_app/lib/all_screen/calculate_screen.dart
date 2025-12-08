@@ -34,9 +34,7 @@ class CalculateScreen extends StatelessWidget {
                 spacing: 25,
                 children: [
                   Text(
-                    BmiCalculator.getResult(
-                      theResult.toDouble(),
-                    ), // Dynamic result
+                    BmiCalculator.getResult(theResult.toDouble()),
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -54,9 +52,7 @@ class CalculateScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
-                      BmiCalculator.getInterpretation(
-                        theResult.toDouble(),
-                      ), // Dynamic advice
+                      BmiCalculator.getInterpretation(theResult.toDouble()),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20,

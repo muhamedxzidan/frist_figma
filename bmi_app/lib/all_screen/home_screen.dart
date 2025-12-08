@@ -30,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Row(
               children: [
-                // ... (Gender Widgets)
                 GenderWidget(
                   named: "Male",
                   icons: Icons.male,
