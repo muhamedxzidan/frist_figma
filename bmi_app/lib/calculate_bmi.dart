@@ -50,4 +50,23 @@ class BmiCalculator {
       return Colors.white;
     }
   }
+
+  static String getIdealWeightRange(double heightInCm) {
+    double heightInMeters = heightInCm / 100.0;
+    double minWeight = 18.5 * heightInMeters * heightInMeters;
+    double maxWeight = 24.9 * heightInMeters * heightInMeters;
+    return '${minWeight.toStringAsFixed(1)} kg - ${maxWeight.toStringAsFixed(1)} kg';
+  }
+
+  static String getHealthTip(double bmi) {
+    if (bmi >= 30) {
+      return 'Try to reduce your intake of sugar and processed foods. Aim for 30 minutes of walking daily.';
+    } else if (bmi >= 25) {
+      return 'Cut down on snacks and try to include more protein in your diet. Regular exercise helps.';
+    } else if (bmi > 18.5) {
+      return 'Maintain your current lifestyle with a balanced diet and regular physical activity.';
+    } else {
+      return 'Try to eat more frequent meals rich in protein and healthy fats to gain weight safely.';
+    }
+  }
 }

@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class CalculateScreen extends StatelessWidget {
   final int theResult;
+  final double height;
 
-  const CalculateScreen(this.theResult, {super.key});
+  const CalculateScreen(this.theResult, this.height, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,39 @@ class CalculateScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Divider(
+                    color: BmiCalculator.getTextColor(theResult.toDouble()),
+                  ),
+                  Text(
+                    "Ideal Weight Range:",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: BmiCalculator.getTextColor(theResult.toDouble()),
+                    ),
+                  ),
+                  Text(
+                    BmiCalculator.getIdealWeightRange(height),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: BmiCalculator.getTextColor(theResult.toDouble()),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      BmiCalculator.getHealthTip(theResult.toDouble()),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                        color: BmiCalculator.getTextColor(theResult.toDouble()),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
                 ],
               ),
             ),

@@ -94,7 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CalculateScreen(result.round()),
+                builder: (context) =>
+                    CalculateScreen(result.round(), heightValue.toDouble()),
               ),
             );
           },
